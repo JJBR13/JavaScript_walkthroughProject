@@ -15,6 +15,13 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
+    // Press enter to submit answer
+    document.getElementById('answer-box').addEventListener('keydown', function(event){
+        if (event.key === 'Enter') {
+            checkAnswer();
+        }
+    })
+
     runGame("addition"); 
 
 });
@@ -28,6 +35,9 @@ function runGame(gameType) {
 
     // Allows you to not have to delete old answer b4 new answer 
     document.getElementById('answer-box').value = '';
+
+    // Sets curse to be in answer box on game start... known as curser focus 
+    document.getElementById('answer-box').focus();
     
     // Generates 2 random number between 1 and 25
     let num1 = Math.floor(Math.random() * 25 + 1);
